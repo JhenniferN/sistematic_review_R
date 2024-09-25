@@ -4,5 +4,5 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of sistematic_review_R is to ...
+The goal of sistematic_review_R is to review ...
 
