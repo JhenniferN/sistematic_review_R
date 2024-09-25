@@ -1,0 +1,247 @@
+---
+title: "Supplementary tables"
+output: html_document
+---
+
+<span style="font-weight: bold; font-size: 2em;">Data transformations for ANOVA assumption violations in agrarian sciences subfields: a systematic review, simulation study, and practical guidelines</span>
+
+**Jhennifer dos Santos Nascimento<sup>1</sup>, Luciano Gonçalves Batista <sup>1</sup>, Lucas Pereira Belo <sup>1</sup>, Jonas Firmiano da Silva<sup>1</sup>, Paulo César Emiliano<sup>1</sup>, Wagner Faria Barbosa<sup>1</sup> and Guilherme Henrique da Silva Costa <sup>2</sup>**
+
+<sup>1</sup>Departamento de Estatística. Universidade Federal de Viçosa. Viçosa, Minas Gerais, Brazil.
+
+<sup>2</sup>ICTP South American Institute for Fundamental Research and Instituto de Física Teórica,
+Universidade Estadual Paulista - UNESP, São Paulo, Brazil.
+
+## Table 1: Variable description 
+**This table provides a list of variables, along with their respective descriptions, collected during the systematic review of articles in agricultural sciences that employed data transformations to validate variance analysis.**
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+
+# Carregar as bibliotecas necessárias
+library(openxlsx)
+library(readxl)
+library(DT)
+
+
+variable_description <- read_excel("variable_description.xlsx") 
+
+# Tabela de descrição de variáveis interativa
+datatable(variable_description, options = list(
+  searching = FALSE,
+  paging = FALSE
+), rownames = FALSE)
+
+
+```
+
+## Table 2: Entomology 
+**This database was constructed following the identification, screening, eligibility, and inclusion stages of a systematic literature review of articles within the agricultural sciences, specifically focusing on entomology. The review includes studies that applied data transformations to meet the assumptions of variance analysis, providing insight into how this technique is applied in research within the field.**
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Carregar as bibliotecas necessárias
+library(readxl)
+library(DT)
+library(dplyr)
+
+# Função para reorganizar as colunas
+reorganizar_colunas <- function(data) {
+  data[, c(
+    "reference_number",
+    "title",
+    "journal",
+    "year",
+    "authors",
+    "ANOVA_used",
+    "design_used",
+    "assumptions_check",
+    "which_assumptions_checked",
+    "transformation_used",
+    "type_of_transformation",
+    "motivation",
+    "reassessment_assumptions",
+    "interpretation_scala",
+    "study_element",
+    "jcr_impact_factor",
+    "status",
+    "discard_reason",
+    "observation"
+  )]
+}
+
+# Ler os arquivos Excel e adicionar a coluna 'area'
+entomology <- read_excel("processed_entomology.xlsx") %>% mutate(area = "entomology")
+
+# Reorganizar as colunas de cada tabela
+entomology <- reorganizar_colunas(entomology)
+
+# Tabela interativa para Entomology
+datatable(entomology, options = list(
+  searching = TRUE,
+  paging = TRUE,
+  scrollX = TRUE,
+  lengthMenu = c(10, 25, 50, 100),
+  order = list(list(1, "asc"))
+))
+
+```
+
+
+## Table 3: Plant Science
+**This database was constructed following the identification, screening, eligibility, and inclusion stages of a systematic literature review of articles within the agricultural sciences, specifically focusing on plant science. The review includes studies that applied data transformations to meet the assumptions of variance analysis, providing insight into how this technique is applied in research within the field.**
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Carregar as bibliotecas necessárias
+library(readxl)
+library(DT)
+library(dplyr)
+
+# Função para reorganizar as colunas
+reorganizar_colunas <- function(data) {
+  data[, c(
+    "reference_number",
+    "title",
+    "journal",
+    "year",
+    "authors",
+    "ANOVA_used",
+    "design_used",
+    "assumptions_check",
+    "which_assumptions_checked",
+    "transformation_used",
+    "type_of_transformation",
+    "motivation",
+    "reassessment_assumptions",
+    "interpretation_scala",
+    "study_element",
+    "jcr_impact_factor",
+    "status",
+    "discard_reason",
+    "observation"
+  )]
+}
+
+# Ler os arquivos Excel e adicionar a coluna 'area'
+plant <- read_excel("processed_plant.xlsx") %>% mutate(area = "plant science")
+
+# Reorganizar as colunas de cada tabela
+plant <- reorganizar_colunas(plant)
+
+# Tabela interativa para Plant Science
+datatable(plant, options = list(
+  searching = TRUE,
+  paging = TRUE,
+  scrollX = TRUE,
+  lengthMenu = c(10, 25, 50, 100),
+  order = list(list(1, "asc"))
+))
+
+```
+
+
+
+## Table 4: Forestry
+**This database was constructed following the identification, screening, eligibility, and inclusion stages of a systematic literature review of articles within the agricultural sciences, specifically focusing on forestry. The review includes studies that applied data transformations to meet the assumptions of variance analysis, providing insight into how this technique is applied in research within the field.**
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Carregar as bibliotecas necessárias
+library(readxl)
+library(DT)
+library(dplyr)
+
+# Função para reorganizar as colunas
+reorganizar_colunas <- function(data) {
+  data[, c(
+    "reference_number",
+    "title",
+    "journal",
+    "year",
+    "authors",
+    "ANOVA_used",
+    "design_used",
+    "assumptions_check",
+    "which_assumptions_checked",
+    "transformation_used",
+    "type_of_transformation",
+    "motivation",
+    "reassessment_assumptions",
+    "interpretation_scala",
+    "study_element",
+    "jcr_impact_factor",
+    "status",
+    "discard_reason",
+    "observation"
+  )]
+}
+
+# Ler os arquivos Excel e adicionar a coluna 'area'
+forestry <- read_excel("processed_forestry.xlsx") %>% mutate(area = "forestry")
+
+# Reorganizar as colunas de cada tabela
+forestry <- reorganizar_colunas(forestry)
+
+# Tabela interativa para Forestry
+datatable(forestry, options = list(
+  searching = TRUE,
+  paging = TRUE,
+  scrollX = TRUE,
+  lengthMenu = c(10, 25, 50, 100),
+  order = list(list(1, "asc"))
+))
+
+```
+
+
+## Table 5: Soil Science
+**This database was constructed following the identification, screening, eligibility, and inclusion stages of a systematic literature review of articles within the agricultural sciences, specifically focusing on soil science. The review includes studies that applied data transformations to meet the assumptions of variance analysis, providing insight into how this technique is applied in research within the field.**
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Carregar as bibliotecas necessárias
+library(readxl)
+library(DT)
+library(dplyr)
+
+# Função para reorganizar as colunas
+reorganizar_colunas <- function(data) {
+  data[, c(
+    "reference_number",
+    "title",
+    "journal",
+    "year",
+    "authors",
+    "ANOVA_used",
+    "design_used",
+    "assumptions_check",
+    "which_assumptions_checked",
+    "transformation_used",
+    "type_of_transformation",
+    "motivation",
+    "reassessment_assumptions",
+    "interpretation_scala",
+    "study_element",
+    "jcr_impact_factor",
+    "status",
+    "discard_reason",
+    "observation"
+  )]
+}
+
+# Ler os arquivos Excel e adicionar a coluna 'area'
+soil <- read_excel("processed_soil.xlsx") %>% mutate(area = "soil science")
+
+# Reorganizar as colunas de cada tabela
+soil <- reorganizar_colunas(soil)
+
+# Tabela interativa para Soil Science
+datatable(soil, options = list(
+  searching = TRUE,
+  paging = TRUE,
+  scrollX = TRUE,
+  lengthMenu = c(10, 25, 50, 100),
+  order = list(list(1, "asc"))
+))
+
+
+```
+
+
+
